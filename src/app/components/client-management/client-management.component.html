@@ -1,0 +1,89 @@
+<div class="container py-4" style="max-width: 1200px;">
+  <div class="card border-0 shadow-sm">
+    <div class="card-header" style="background-color: #2c3e50; color: white;">
+      <h2 class="h5 mb-0 text-center">Client Management</h2> 
+    </div>
+    
+    <div class="card-body p-3">
+      <div class="row mb-3 justify-content-center"> 
+        <div class="col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control form-control-sm" 
+                   [(ngModel)]="searchTerm" 
+                   (keyup.enter)="onSearch()" 
+                   placeholder="Search clients...">
+            <button class="btn btn-sm" (click)="onSearch()" style="background-color: #2c3e50; color: white;">
+              <i class="bi bi-search"></i> Search
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm table-hover mb-0">
+          <thead style="background-color: #2c3e50; color: white;">
+            <tr>
+              <th scope="col" class="text-center">Username</th>
+              <th scope="col" class="text-center">First Name</th>
+              <th scope="col" class="text-center">Last Name</th>
+              <th scope="col" class="text-center">Email</th>
+              <th scope="col" class="text-center">Status</th>
+              <th scope="col" class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let client of displayedClients">
+          
+              <td class="text-center">{{ client.username }}</td>
+              <td class="text-center">{{ client.firstName }}</td>
+              <td class="text-center">{{ client.lastName }}</td>
+              <td class="text-center">
+                <a href="mailto:{{ client.email }}" class="text-decoration-none" style="color: #000 !important;">
+                  {{ client.email }}
+                </a>
+              </td>
+              <td class="text-center">
+                <span class="badge rounded-pill" 
+                      [style.background]="client.status === 'BLOCK' ? '#e74c3c' : '#2ecc71'">
+                  {{ client.status }}
+                </span>
+              </td>
+              <td class="text-center">
+                <div class="d-flex gap-2 justify-content-center">
+                  <button class="btn btn-sm px-2 flex-grow-0" 
+                          (click)="editClient(client.id!!)" 
+                          style="background-color: #2c3e50; color: white;">
+                    Update
+                  </button>
+                  <div *ngIf="showUpdateForm && selectedClient" class="modal-overlay">
+                    <app-client-edit-form
+                      [client]="selectedClient"
+                      (save)="handleUpdateSave($event)"
+                      (cancel)="handleUpdateCancel()">
+                    </app-client-edit-form>
+                  </div>
+                  <button class="btn btn-sm px-2 flex-grow-0" 
+                          (click)="deleteClient(client.id!!)" 
+                          style="background-color: #2c3e50; color: white;">
+                    Delete
+                  </button>
+                  <button *ngIf="client.status !== 'BLOCK'" 
+                          class="btn btn-sm px-2 flex-grow-0" 
+                          (click)="blockClient(client.id!!)" 
+                          style="background-color: #2c3e50; color: white;">
+                    Block
+                  </button>
+                  <button *ngIf="client.status === 'BLOCK'" 
+                          class="btn btn-sm px-2 flex-grow-0" 
+                          (click)="unblockClient(client.id!!)" 
+                          style="background-color: #2c3e50; color: white;">
+                    Unblock
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
