@@ -1,0 +1,76 @@
+/* Glavni stilovi za verify komponentu */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: #F0F8FF;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    opacity: 0.9;
+}
+
+.btn-primary:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    border-radius: 5px;
+    padding: 0.75rem 1.25rem;
+}

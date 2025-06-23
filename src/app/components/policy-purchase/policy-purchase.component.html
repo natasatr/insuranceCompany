@@ -1,0 +1,44 @@
+<div class="modal-overlay">
+    <div class="card shadow" style="width: 600px;">
+        <div class="card-header text-white text-center py-3" style="background-color: #2C3E50;">
+            <h5 class="mb-0 text-break" style="font-size: 1.2rem;">{{ policy.policyname }}</h5>
+        </div>
+        <div class="card-body">
+            <p><strong>Opis:</strong> {{policy.description}}</p>
+            <p><strong>Cijena:</strong> {{policy.price | currency}}</p>
+
+            <div class="mt-4">
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Iznos</label>
+                    <input type="number" [(ngModel)]="amount" class="form-control" id="amount" 
+                        min="1" step="0.01" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cardNumber" class="form-label">Broj kartice</label>
+                    <input type="text" [(ngModel)]="cardNumber" class="form-control" id="cardNumber" 
+                        placeholder="4242 4242 4242 4242" (input)="formatCardNumber($event)"
+                        maxlength="19" required>
+                </div>
+            </div>
+
+            <div *ngIf="showBlockedMessage" class="alert alert-danger">
+                <h5>Account Blocked</h5>
+                <p>Your account has been blocked due to suspicious payment activity.</p>
+                <p>You will be redirected to login in 5 seconds...</p>
+            </div>
+
+            <div *ngIf="errorMessage && !showBlockedMessage" class="alert alert-danger py-1 px-2">
+                {{errorMessage}}
+            </div>
+
+
+            <div class="d-flex justify-content-end mt-4">
+                <button class="btn btn-secondary btn-sm me-2" (click)="onCancel()">Cancel</button>
+                <button class="btn btn-success btn-sm" 
+                        [disabled]="isProcessing || !amount || !cardNumber" (click)="onPaymentSubmit()">
+                            {{isProcessing ? 'Processing payment...' : 'Buy'}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

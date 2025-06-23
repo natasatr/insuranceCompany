@@ -1,0 +1,54 @@
+.navbar-custom {
+    background: linear-gradient(135deg, #6e8efb, #a777e3) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    padding: 0.5rem 1rem !important;
+}
+
+.navbar-brand-custom {
+    color: white !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.navbar-brand-custom:hover {
+    transform: scale(1.05) !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7) !important;
+}
+
+.welcome-text {
+    color: white !important;
+    font-size: 0.9rem;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.custom-logout-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px; 
+    padding: 0.35rem 1rem;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.custom-logout-btn:active {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(0);
+}
+
+.custom-logout-btn i {
+    transition: transform 0.3s ease;
+}
+
+.custom-logout-btn:hover i {
+    transform: translateX(2px);
+}

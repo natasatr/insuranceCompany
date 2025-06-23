@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 400px;">
+        <div class="card-body">
+            <h2 class="card-title text-center">Create an account</h2>
+            <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="registerData.firstName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="registerData.lastName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" [(ngModel)]="registerData.username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="registerData.email" required="">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="registerData.password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="repeatPassword" class="form-label">Repeat Password</label>
+                    <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" [(ngModel)]="repeatPassword" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100" [disabled]="!registerForm.valid || registerData.password !== repeatPassword">Register</button> 
+                <p class="text-center mt-3">Have already an account? <a routerLink="/login">Login page</a></p>
+            </form>
+        </div>
+    </div>
+</div>
